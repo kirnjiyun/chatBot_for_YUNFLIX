@@ -38,7 +38,7 @@ app.post("/recommend", async (req, res) => {
 
         console.log("OpenAI 요청 시작:", message);
         const completion = await openai.chat.completions.create({
-            model: "gpt-4o-mini", // 실제 사용하시는 모델로 변경
+            model: "gpt-4o-mini",
             messages: [
                 {
                     role: "system",
