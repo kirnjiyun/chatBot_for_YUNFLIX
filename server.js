@@ -80,7 +80,6 @@ app.post("/recommend", async (req, res) => {
         }
 
         // TMDB 정보 보강
-        // (기존에 번역용 OpenAI 호출이 있었다면 제거 또는 주석 처리)
         const enrichedMovies = await Promise.all(
             movies.slice(0, 3).map(async (movie) => {
                 try {
@@ -161,8 +160,6 @@ app.post("/recommend", async (req, res) => {
             })
         );
 
-        console.log("추출된 소개 문장:", intro);
-        console.log("추출된 영화 목록:", enrichedMovies);
         res.status(200).json({ intro, movies: enrichedMovies });
     } catch (error) {
         console.error("API 요청 실패:", error);
